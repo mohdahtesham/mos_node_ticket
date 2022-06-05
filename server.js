@@ -11,17 +11,17 @@ var corsOptions = {
 };
 
 app.use(cors());
-app.use(express.static(__dirname + '/dist'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/frontend/dist/Angular12JwtAuth/index.html'));
-});
+app.use(express.static(__dirname + '/public'));
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/frontend/dist/Angular12JwtAuth/index.html'));
+// });
 // parse requests of content-type - application/json
 app.use(express.json());  /* bodyParser.json() is deprecated */
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
 
-const db = require("./app/models");
+const db = require("./models");
 const Role = db.role;
 
 db.mongoose
@@ -44,9 +44,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to mo's application." });
 });
 
-require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
-require("./app/routes/tutorial.routes")(app);
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+require("./routes/tutorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
