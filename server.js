@@ -1,6 +1,7 @@
 const express = require("express");
 // const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
+const path = require('path')
 
 const app = express();
 
@@ -10,10 +11,10 @@ var corsOptions = {
 };
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "frontend/build")));
-app.route('/*', function(req,res) {
-  res.redirect(__dirname + '/dist/index.html')
-})
+app.use(express.static(__dirname + '/dist'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/frontend/dist/Angular12JwtAuth/index.html'));
+});
 // parse requests of content-type - application/json
 app.use(express.json());  /* bodyParser.json() is deprecated */
 
