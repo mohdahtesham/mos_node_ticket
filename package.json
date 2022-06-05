@@ -7,9 +7,7 @@
     "node": "14.18.3"
   },
   "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
-
+    "start": "node server.js"
   },
   "keywords": [
     "nodejs",
