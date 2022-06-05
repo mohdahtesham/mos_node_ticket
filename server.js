@@ -12,9 +12,9 @@ var corsOptions = {
 
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
-// app.get('/', function(req, res) {
-//   res.sendFile(path.join(__dirname + '/frontend/dist/Angular12JwtAuth/index.html'));
-// });
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/frontend/dist/Angular12JwtAuth/index.html'));
+});
 // parse requests of content-type - application/json
 app.use(express.json());  /* bodyParser.json() is deprecated */
 
