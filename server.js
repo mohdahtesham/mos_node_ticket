@@ -4,12 +4,16 @@ const cors = require("cors");
 
 const app = express();
 
+
 var corsOptions = {
   origin: "http://localhost:8081"
 };
 
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "client/build")));
+app.route('/*', function(req,res) {
+  res.redirect(__dirname + '/dist/index.html')
+})
 // parse requests of content-type - application/json
 app.use(express.json());  /* bodyParser.json() is deprecated */
 
