@@ -13,7 +13,7 @@ var corsOptions = {
 app.use(cors());
 app.use(express.static(__dirname + '/frontend/dist/Angular12JwtAuth'));
 
-app.get('/*', function(req,res) {
+app.get('/', function(req,res) {
     res.sendFile(path.join(__dirname+'/frontend/dist/Angular12JwtAuth/index.html'));
 });
 
