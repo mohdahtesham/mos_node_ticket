@@ -10,9 +10,9 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix frontend",
-    "clientinstall": "npm install --prefix frontend",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "client": "cd frontend npm start",
+    "clientinstall": "cd frontend npm install",
+    "heroku-postbuild": "cd frontend npm install && npm run build"
     },
   "keywords": [
     "nodejs",
